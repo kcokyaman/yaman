@@ -1,1 +1,6 @@
+#All Ports CDP Info
 for i in `seq 0 5`; do echo 'vmnic'$i':'; vim-cmd hostsvc/net/query_networkhint --pnic-name=vmnic$i |egrep -iw 'devId|portId'; done
+#Check CDP
+esxcfg-vswitch -b vSwitch0
+#Configure CDP both
+esxcfg-vswitch -B both vSwitch0
